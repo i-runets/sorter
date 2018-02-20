@@ -33,6 +33,9 @@ class Sorter {
     for (var i = 0; i < indices.length; i++) {
       temp[i] = this.array[indices[i]];
     }
+    indices.sort(function (a, b) {
+      return a - b;
+    })
     if (this.comparator != false) {
       temp.sort(this.comparator)
     }
@@ -42,7 +45,7 @@ class Sorter {
       })
     }
     for (var j = 0; j < temp.length; j++) {
-      this.array[j] = temp[j];
+      this.array[indices[j]] = temp[j];
     }
   }
 
